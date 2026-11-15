@@ -29,7 +29,7 @@ try {
  }
  assert.ok(ready,'server started');
  const base='http://127.0.0.1:18971';
- assert.equal((await (await fetch(base+'/health')).json()).providers,1);
+ assert.equal((await (await fetch(base+'/health')).json()).providers,2);
  const unauthorized=await fetch(base+'/v1/chat/completions',{method:'POST',headers:{'content-type':'application/json'},body:'{}'});
  assert.equal(unauthorized.status,401);
  const headers={'content-type':'application/json',authorization:'Bearer test-secret'};
